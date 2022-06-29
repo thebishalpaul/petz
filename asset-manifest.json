@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/petz/static/css/main.71f3d957.css",
+    "main.js": "/petz/static/js/main.d0c0646c.js",
+    "index.html": "/petz/index.html",
+    "main.71f3d957.css.map": "/petz/static/css/main.71f3d957.css.map",
+    "main.d0c0646c.js.map": "/petz/static/js/main.d0c0646c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71f3d957.css",
+    "static/js/main.d0c0646c.js"
+  ]
+}
