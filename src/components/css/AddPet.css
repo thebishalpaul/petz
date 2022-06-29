@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+h1,h5,.form-container > div>*{
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+}
+
+.form-container{
+    text-align: center;
+    /* overflow-x: hidden; */
+}
+
+.form-container>div{
+    font-family: 'Lora', serif;
+    margin: 15px;
+}
+input[type=text]{
+    width:28rem;
+}
+#file{
+    text-align: center;
+    margin-left: 13rem;
+}
+
+button[type=submit]{
+    width:100%;
+    margin-bottom: 40px;
+}
