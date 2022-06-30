@@ -83,19 +83,21 @@ button{
     }
     
     .logo h2 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
-    
     .first_navbar{
-        grid-template-columns: 13rem 2fr 10rem;
+        grid-template-columns: 10rem 2fr 10rem;
         height: 9rem;
     }
     
     .hamburger{
         justify-self: end;
         display: block;
+        margin-right: -32px;
     }
-
+    .hamburger a{
+        color:white;
+    }
     .mobile_navbar{
         background-color: rgb(1, 27, 27);
         display:grid;
