@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { DropDownItems } from './DropDownItems';
 import './css/Dropdown.css';
-import { Link } from 'react-router-dom';
 
 function Dropdown() {
   const [click, setClick] = useState(false);
@@ -16,10 +15,7 @@ function Dropdown() {
       >
         {DropDownItems.map((item, index) => {
           return (
-            <li key={index}>
-              
-                
-                
+            <li key={index}>     
                 <a className={item.cName} href={item.path} target="_blank" onClick={() => setClick(false)}>      
                   {item.title}
                 </a>
