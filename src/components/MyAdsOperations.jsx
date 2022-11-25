@@ -13,8 +13,7 @@ function MyAdsOperations({element,user,handleLogOut}) {
             if(user){    
                 db.collection('pets '+user.uid).doc(element.ID).delete().then(()=>{
                     console.log('successfully deleted');
-                })
-                // console.log(element.ID); 
+                }) 
             }
         })
     }

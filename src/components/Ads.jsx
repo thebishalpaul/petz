@@ -23,9 +23,9 @@ Address:  ${Address}`)
         </div>
         <div className="title">{petName}</div>
         <div className="data">
-        <p>Breed: {breed}</p>
-        <p>Gender: {gender}</p>
-        <p>Age: {age}</p>
+          <p>Breed: {breed}</p>
+          <p>Gender: {gender}</p>
+          <p>Age: {age}</p>
         </div>
         <button onClick={handleContactOwner}> Contact Owner </button>
     </div>

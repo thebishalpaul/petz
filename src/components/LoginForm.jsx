@@ -24,7 +24,7 @@ function LoginForm({
           </>}
            <button className="close-btn" onClick={()=>setOpenPopup(false)}><CloseIcon fontSize="large"/></button>
             <div className="loginContainer">
-                <label>Username</label>
+                <label>Email Id</label>
                 <input type="text" autoFocus
                 required
                 value={email}

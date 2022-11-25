@@ -8,6 +8,8 @@ import Popup from './components/Popup'
 import DogCare from './components/DogCare';
 import AddPet from './components/AddPet';
 import MyAds from './components/MyAds';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 
 function App() {
   const [user,setUser]=useState('');
@@ -17,7 +19,6 @@ function App() {
   const [emailError,setEmailError]=useState('');
   const [passwordError,setPasswordError]=useState('');
   const [hasAccount,sethasAccount]=useState(false);
-  const [isShowLogin, setIsShowLogin] = useState(false);
   const [openPopup,setOpenPopup]=useState(false);
 
   const auth = getAuth();
@@ -35,7 +36,7 @@ function App() {
   const handleLogin=()=>{
     clearError();
       signInWithEmailAndPassword(auth,email,password)
-      .then((userCredential) => {
+      .then(() => {
         // Signed in 
         alert("Log In Successfull!!");
         setOpenPopup(false);
@@ -122,6 +123,16 @@ function App() {
       userId={userId}
       handleLogOut={handleLogOut}
       />}/>
+      <Route path='/AboutUs' 
+      element={<AboutUs
+      user={user}
+      userId={userId}
+      handleLogOut={handleLogOut}/>}/>
+      <Route path='/ContactUs' 
+      element={<ContactUs
+      user={user}
+      userId={userId}
+      handleLogOut={handleLogOut}/>}/>
     </Routes>
     <Popup
        openPopup={openPopup}

@@ -39,7 +39,7 @@ const Home=({setOpenPopup,user,handleLogOut})=>{
      {info.length<1 &&(
        <div className='loading'>Finding a pet for you...</div>
      )}
-
+     
      {/* filter*********************** */}
      {info.filter((val)=>{
        if(searchTerm=="") return val

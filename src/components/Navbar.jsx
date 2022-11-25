@@ -82,8 +82,8 @@ function Navbar({setOpenPopup,user,handleLogOut}) {
             </a>
             {dropdown && <Dropdown/>}
             </li>
-            <li><a href="#">AboutUs</a></li>
-            <li><a href="#">ContactUs </a></li>
+            <li><Link to="./AboutUs">AboutUs</Link></li>
+            <li><Link to="./ContactUs">ContactUs</Link></li>
         </ul>
     </div>
    {

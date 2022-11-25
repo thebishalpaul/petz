@@ -29,12 +29,10 @@ const types =['image/jpg','image/jpeg','image/png','image/PNG'];
         if(selectedFile){
             if(selectedFile&&types.includes(selectedFile.type)){
                 setImgUrl(selectedFile);
-                setImgError('');                
-                // console.log(imgUrl);
+                setImgError('');               
             }
             else{
                 setImgUrl("");
-                // imgUrl.name=0;
                 setImgError('Please select a valid image file type (png or jpg)')
             }
         }
