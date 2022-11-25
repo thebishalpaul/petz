@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/petz/static/css/main.61874bdc.css",
-    "main.js": "/petz/static/js/main.1952ac82.js",
+    "main.js": "/petz/static/js/main.a19f9a0c.js",
     "index.html": "/petz/index.html",
     "main.61874bdc.css.map": "/petz/static/css/main.61874bdc.css.map",
-    "main.1952ac82.js.map": "/petz/static/js/main.1952ac82.js.map"
+    "main.a19f9a0c.js.map": "/petz/static/js/main.a19f9a0c.js.map"
   },
   "entrypoints": [
     "static/css/main.61874bdc.css",
-    "static/js/main.1952ac82.js"
+    "static/js/main.a19f9a0c.js"
   ]
 }
