@@ -11,7 +11,6 @@ const Home=({setOpenPopup,user,handleLogOut})=>{
     const [searchTerm,setSearchTerm]=useState("");
     // "ESYXOPqlJpZ48np8LfNivnh9pvc2"
     // ITNhjnYcEDUSxVdtYJtMTV9GnWI3
-    
     // console.log(searchTerm);
   useEffect(() => {
     db.collection("pets ESYXOPqlJpZ48np8LfNivnh9pvc2").onSnapshot((snapshot) =>
@@ -19,7 +18,6 @@ const Home=({setOpenPopup,user,handleLogOut})=>{
       );    
     },[]);
     
-    // console.log(info);
     return(
     <>
     <Navbar
@@ -42,7 +40,8 @@ const Home=({setOpenPopup,user,handleLogOut})=>{
      
      {/* filter*********************** */}
      {info.filter((val)=>{
-       if(searchTerm=="") return val
+       if(searchTerm=="") 
+           return val
        else if(val.type.toLowerCase().includes(searchTerm.toLowerCase())){
          return val
        }

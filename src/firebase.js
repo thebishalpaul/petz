@@ -2,7 +2,6 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { getStorage } from "firebase/storage";
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyC5_3f4s_3CB7BCxnUUIYXvpGP852yT6q0",
   authDomain: "petz-bcdbf.firebaseapp.com",
@@ -13,7 +12,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db=firebaseApp.firestore();
 const storage = getStorage(firebaseApp);

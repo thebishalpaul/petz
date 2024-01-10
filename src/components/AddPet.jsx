@@ -27,7 +27,7 @@ const types =['image/jpg','image/jpeg','image/png','image/PNG'];
     const handleProductImg=(e)=>{
         let selectedFile = e.target.files[0];
         if(selectedFile){
-            if(selectedFile&&types.includes(selectedFile.type)){
+            if(selectedFile && types.includes(selectedFile.type)){
                 setImgUrl(selectedFile);
                 setImgError('');               
             }
@@ -105,7 +105,7 @@ const types =['image/jpg','image/jpeg','image/png','image/PNG'];
     <form className="form-container bg-color full-height white-font" onSubmit={handleSubmit}>
         <h1 className="heading">Rehome a Pet</h1>
         <h5>Pet Details</h5>
-
+        
         <div className="pet-name margin">
         <label>Pet's Name?</label>
         <br/>

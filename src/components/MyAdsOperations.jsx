@@ -1,12 +1,11 @@
 import React from 'react'
-import Navbar from './Navbar'
-import { getAuth,createUserWithEmailAndPassword, onAuthStateChanged,signOut,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {db} from "../firebase"
 import Ads from "./Ads"
-import './Ads.css'
-import "./css/MyAdsOperations.css"
+import '../components/css/Ads.css'
+import "../components/css/MyAdsOperations.css"
 
-function MyAdsOperations({element,user,handleLogOut}) {
+function MyAdsOperations({element,user}) {
     const auth = getAuth();
     const handleAdsDelete=()=>{
         onAuthStateChanged(auth,user=>{

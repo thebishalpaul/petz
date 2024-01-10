@@ -1,25 +1,25 @@
 import React from 'react'
 // import {useNavigate} from "react-router-dom"
-import "./Ads.css"
+import "../components/css/Ads.css"
 
 
-function Ads({age,gender,imgUrl,petName,type,breed,user,contactNo,Address}) {
-  
+function Ads({ age, gender, imgUrl, petName, breed, user, contactNo, Address }) {
+
   // const [openPopup,setOpenPopup]=useState(false);
-    const handleContactOwner=()=>{
-     if(!user){
+  const handleContactOwner = () => {
+    if (!user) {
       alert("Please Login First!!")
-     }
-      else{
-       alert(`Phone: ${contactNo}
-Address:  ${Address}`)
-      }
     }
+    else {
+      alert(`Phone: ${contactNo}
+Address:  ${Address}`)
+    }
+  }
   return (
     <>
-    <div className="card">
+      <div className="card">
         <div className="pet_image">
-            <img src={imgUrl} alt="pet-image" height="125px" width="200px "/>
+          <img src={imgUrl} alt="pet" height="125px" width="200px " />
         </div>
         <div className="title">{petName}</div>
         <div className="data">
@@ -28,7 +28,7 @@ Address:  ${Address}`)
           <p>Age: {age}</p>
         </div>
         <button onClick={handleContactOwner}> Contact Owner </button>
-    </div>
+      </div>
     </>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Dialog,DialogContent } from '@mui/material'
-import "./Popup.css"
+import "../components/css/Popup.css"
+
 function Popup({children,openPopup}) {
   return (
     <>
