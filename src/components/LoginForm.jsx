@@ -1,6 +1,5 @@
 import React from 'react'
 import '../components/css/LoginForm.css'
-import CloseIcon from '@mui/icons-material/Close';
 
 function LoginForm({
   email,
@@ -8,12 +7,11 @@ function LoginForm({
   password,
   setPassword,
   handleLogin,
-  handleSignUp,
+  handleSignup,
   hasAccount,
   successMsg,
   emailError,
   passwordError,
-  setOpenPopup,
   sethasAccount
 }) {
   return (
@@ -22,7 +20,7 @@ function LoginForm({
         {successMsg && <>
           <p>{successMsg}</p>
         </>}
-        <button className="close-btn" onClick={() => setOpenPopup(false)}><CloseIcon fontSize="large" /></button>
+        {/* <button className="close-btn" onClick={() => setIsModalOpen(false)}><CloseIcon fontSize="large" /></button> */}
         <div className="loginContainer">
           <label>Email Id</label>
           <input type="text" autoFocus
@@ -44,7 +42,7 @@ function LoginForm({
             {hasAccount ?
               (
                 <>
-                  <button onClick={handleLogin}>Sign In</button>
+                  <button className='signInBtn' onClick={handleLogin}>Sign In</button>
                   <p>Don't have an account ?
                     <span onClick={() => sethasAccount(!hasAccount)}>Sign Up</span>
                   </p>
@@ -52,7 +50,7 @@ function LoginForm({
               ) :
               (
                 <>
-                  <button onClick={handleSignUp}>Sign up</button>
+                  <button className='signInBtn' onClick={handleSignup}>Sign Up</button>
                   <p>Have an account ?<span onClick={() => sethasAccount(!hasAccount)}>Sign in</span>
                   </p>
                 </>

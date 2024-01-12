@@ -1,4 +1,5 @@
 import React from 'react'
+import 'react-responsive-modal/styles.css';
 import '../components/css/Navbar.css'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useState } from 'react';
@@ -7,8 +8,20 @@ import PersonIcon from '@mui/icons-material/Person';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import Dropdown from './Dropdown';
-
-function Navbar({ setOpenPopup, user, handleLogOut }) {
+import { Modal } from 'react-responsive-modal';
+import LoginForm from './LoginForm'
+function Navbar({ isModalOpen, setIsModalOpen, user, handleLogOut,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  handleLogin,
+  handleSignup,
+  hasAccount,
+  sethasAccount,
+  emailError,
+  passwordError,
+}) {
   const [toggle, setToggle] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -27,7 +40,9 @@ function Navbar({ setOpenPopup, user, handleLogOut }) {
       setDropdown(false);
     }
   };
-
+  const closeIcon = <CloseIcon
+    sx={{ fontSize: "3.5rem" }}
+  />;
   return (
     <>
       <div className='first_navbar white-font'>
@@ -55,12 +70,15 @@ function Navbar({ setOpenPopup, user, handleLogOut }) {
           }
 
           {!user && <>
-            <button className="nav-btn" onClick={() => setOpenPopup(true)}>Log In/Sign Up</button>
+            <button className="nav-btn"
+              onClick={() => setIsModalOpen(true)}>
+              Log In/Sign Up
+            </button>
           </>}
 
         </div>
         <div className="hamburger">
-          <a href="/" onClick={() => {
+          <p onClick={() => {
             setToggle(!toggle)
           }
           }>
@@ -68,7 +86,7 @@ function Navbar({ setOpenPopup, user, handleLogOut }) {
               toggle ? <CloseIcon sx={{ fontSize: 40 }} />
                 : <GiHamburgerMenu size={40} />
             }
-          </a>
+          </p>
         </div>
       </div>
       <div className={toggle ? "second_navbar mobile_navbar" : "second_navbar"}>
@@ -82,8 +100,8 @@ function Navbar({ setOpenPopup, user, handleLogOut }) {
             </a>
             {dropdown && <Dropdown />}
           </li>
-          <li><Link to="./AboutUs">AboutUs</Link></li>
-          <li><Link to="./ContactUs">ContactUs</Link></li>
+          <li><Link to="./AboutUs">About Us</Link></li>
+          <li><Link to="./ContactUs">Contact Us</Link></li>
         </ul>
       </div>
       {
@@ -93,10 +111,35 @@ function Navbar({ setOpenPopup, user, handleLogOut }) {
               <button className="nav-btn" onClick={handleLogOut}>LogOut</button>
             </ul>}
             {!user && <>
-              <button className="nav-btn" onClick={() => setOpenPopup(true)}>Log In/Sign Up</button>
+              <button className="nav-btn" onClick={() => setIsModalOpen(true)}>
+                Log In/Sign Up
+              </button>
             </>}
           </div> : ""
       }
+
+      <Modal
+        open={isModalOpen}
+        closeIcon={closeIcon}
+        onClose={() => setIsModalOpen(false)}
+        closeOnEsc
+        center
+        closeOnOverlayClick={false}
+      >
+        <LoginForm
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          handleLogin={handleLogin}
+          handleSignup={handleSignup}
+          hasAccount={hasAccount}
+          sethasAccount={sethasAccount}
+          emailError={emailError}
+          passwordError={passwordError}
+          setIsModalOpen={setIsModalOpen}
+        />
+      </Modal>
     </>
   );
 }

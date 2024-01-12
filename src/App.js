@@ -4,7 +4,7 @@ import './App.css';
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
-import Popup from './components/Popup'
+// import Popup from './components/Popup'
 import DogCare from './components/DogCare';
 import AddPet from './components/AddPet';
 import MyAds from './components/MyAds';
@@ -19,7 +19,8 @@ function App() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, sethasAccount] = useState(false);
-  const [openPopup, setOpenPopup] = useState(false);
+  // const [openPopup, setOpenPopup] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const auth = getAuth();
   const clearInputs = () => {
@@ -39,7 +40,7 @@ function App() {
       .then(() => {
         // Signed in 
         alert("Log In Successfull!!");
-        setOpenPopup(false);
+        setIsModalOpen(false);
       })
       .catch((err) => {
         switch (err.code) {
@@ -57,12 +58,12 @@ function App() {
       });
   }
 
-  const handleSignUp = () => {
+  const handleSignup = () => {
     clearError();
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         alert("Sign Up Successfull!!")
-        setOpenPopup(false);
+        setIsModalOpen(false);
       })
       .catch(err => {
         switch (err.code) {
@@ -101,6 +102,7 @@ function App() {
       }
     })
   }
+
   // console.log(userId);
   useEffect(() => {
     authListner();
@@ -109,11 +111,23 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home
-          setOpenPopup={setOpenPopup}
-          user={user}
-          handleLogOut={handleLogOut}
-        />} />
+        <Route path="/"
+          element={<Home
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            user={user}
+            handleLogOut={handleLogOut}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleLogin={handleLogin}
+            handleSignup={handleSignup}
+            hasAccount={hasAccount}
+            sethasAccount={sethasAccount}
+            emailError={emailError}
+            passwordError={passwordError}
+          />} />
         <Route path="/DogCare" element={<DogCare />} />
         <Route path="/AddPet" element={<AddPet
           user={user}
@@ -137,11 +151,28 @@ function App() {
             userId={userId}
             handleLogOut={handleLogOut} />} />
       </Routes>
-      <Popup
+
+      {/* <Button variant="contained" sx={{ background: "black" }}
+        onClick={
+          (e) => {
+            e.preventDefault();
+            setIsModalOpen(true)
+          }
+        }
+      >Login</Button> */}
+      {/* <Modal
+        open={isModalOpen}
+        closeIcon={closeIcon}
+        onClose={() => setIsModalOpen(false)}
+        closeOnEsc
+        center
+        closeOnOverlayClick={false}
+      > */}
+      {/* <Popup
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
-      >
-        <LoginForm
+      > */}
+      {/* <LoginForm
           email={email}
           setEmail={setEmail}
           password={password}
@@ -152,9 +183,10 @@ function App() {
           sethasAccount={sethasAccount}
           emailError={emailError}
           passwordError={passwordError}
-          setOpenPopup={setOpenPopup}
-        />
-      </Popup>
+          setIsModalOpen={setIsModalOpen}
+        /> */}
+      {/* </Popup> */}
+      {/* </Modal> */}
     </>
   );
 }
