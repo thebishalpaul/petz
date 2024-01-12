@@ -20,7 +20,6 @@ function LoginForm({
         {successMsg && <>
           <p>{successMsg}</p>
         </>}
-        {/* <button className="close-btn" onClick={() => setIsModalOpen(false)}><CloseIcon fontSize="large" /></button> */}
         <div className="loginContainer">
           <label>Email Id</label>
           <input type="text" autoFocus
